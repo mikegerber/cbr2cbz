@@ -3,6 +3,9 @@ import shutil
 import zipfile
 import tempfile
 import subprocess
+import click
+from pathlib import Path
+
 
 def unpack_cbr(cbr_path, output_folder):
     """Unpack a .cbr file using unrar."""
@@ -34,11 +37,18 @@ def convert_cbr_to_cbz(cbr_path, cbz_path):
         unpack_cbr(cbr_path, temp_dir)
         pack_cbz(temp_dir, cbz_path)
 
-# Example usage:
-if __name__ == "__main__":
-    cbr_file = "example.cbr"  # Replace with your .cbr file path
-    cbz_file = "example.cbz"  # Output path
-    convert_cbr_to_cbz(cbr_file, cbz_file)
 
-# TODO click
-# TODO tmp cbz
+@click.command()
+@click.argument('cbrs', nargs=-1, type=click.Path())
+def convert(cbrs):
+    for cbr in cbrs:
+        cbr = Path(cbr)
+        assert cbr.suffix == ".cbr"
+        cbz = cbr.with_suffix(".cbz")
+        convert_cbr_to_cbz(cbr, cbz)
+
+
+if __name__ == "__main__":
+    convert()
+
+# TODO use temporary cbz
