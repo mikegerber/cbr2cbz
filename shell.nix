@@ -5,6 +5,8 @@ pkgs.mkShell {
     (pkgs.python3.withPackages (ps: [
       ps.loguru
       ps.click
+
+      ps.black
     ]))
     pkgs.unrar-free
   ];
