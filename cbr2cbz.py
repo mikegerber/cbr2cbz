@@ -32,12 +32,14 @@ def pack_cbz(input_folder, cbz_path):
     """Repack folder content into a .cbz file (zip)."""
     if os.path.exists(cbz_path):
         raise RuntimeError(f"'{cbz_path}' already exists")
-    with zipfile.ZipFile(cbz_path, "w", zipfile.ZIP_DEFLATED) as cbz:
+    tmp_cbz_path = cbz_path.with_suffix(".cbz-tmp")
+    with zipfile.ZipFile(tmp_cbz_path, "w", zipfile.ZIP_DEFLATED) as cbz:
         for root, _, files in os.walk(input_folder):
             for file in sorted(files):
                 file_path = os.path.join(root, file)
                 arcname = os.path.relpath(file_path, input_folder)
                 cbz.write(file_path, arcname)
+    os.rename(tmp_cbz_path, cbz_path)
     logger.info(f"Packed '{cbz_path}'")
 
 
