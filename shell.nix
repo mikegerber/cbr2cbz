@@ -6,5 +6,6 @@ pkgs.mkShell {
       ps.loguru
       ps.click
     ]))
+    pkgs.unrar-free
   ];
 }

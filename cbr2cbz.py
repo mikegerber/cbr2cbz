@@ -6,14 +6,16 @@ import subprocess
 import click
 from pathlib import Path
 
+UNRAR = "unrar-free"
+
 
 def unpack_cbr(cbr_path, output_folder):
     """Unpack a .cbr file using unrar."""
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    command = ['unrar', 'x', '-o+', cbr_path, output_folder]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    command = [UNRAR, "x", "-o+", cbr_path, output_folder]
 
     if result.returncode != 0:
         raise RuntimeError(f"Unrar failed:\n{result.stderr}")
