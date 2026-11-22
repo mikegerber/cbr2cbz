@@ -1,10 +1,9 @@
 import os
-import zipfile
-import tempfile
 import subprocess
+import tempfile
+import zipfile
 
 from loguru import logger
-
 
 UNRAR = "unrar-free"
 
