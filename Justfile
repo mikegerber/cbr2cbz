@@ -2,7 +2,7 @@ default:
     @just --list
 
 test:
-    rm -f example example.cbz
+    rm -f example.cbz
     uv run cbr2cbz example.cbr
 
 check:
