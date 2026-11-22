@@ -1,6 +1,9 @@
 import click
 
+from pathlib import Path
 from loguru import logger
+
+from .cbr2cbz import convert_cbr_to_cbz
 
 
 @click.command()

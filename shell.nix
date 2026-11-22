@@ -1,13 +1,11 @@
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
-  buildInputs = [
-    (pkgs.python3.withPackages (ps: [
-      ps.loguru
-      ps.click
+  packages = with pkgs; [
+    uv
+    unrar-free
 
-      ps.black
-    ]))
-    pkgs.unrar-free
+    just
+    ruff
   ];
 }

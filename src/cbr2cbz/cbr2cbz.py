@@ -1,12 +1,7 @@
-#!/usr/bin/env python3
-
 import os
-import shutil
 import zipfile
 import tempfile
 import subprocess
-import click
-from pathlib import Path
 
 from loguru import logger
 
