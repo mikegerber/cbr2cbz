@@ -7,7 +7,7 @@ from .cbr2cbz import convert_cbr_to_cbz
 
 
 @click.command()
-@click.argument("cbrs", nargs=-1, type=click.Path())
+@click.argument("cbrs", nargs=-1, required=True, type=click.Path())
 @click.option("-v", "--verbose", is_flag=True, help="Be verbose.")
 def convert(cbrs, verbose):
     logger.remove()
