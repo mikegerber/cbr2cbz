@@ -6,6 +6,5 @@ pkgs.mkShell {
     unrar-free
 
     just
-    ruff
   ];
 }
