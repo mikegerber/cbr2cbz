@@ -5,7 +5,7 @@ build-backend = "uv_build"
 [project]
 name = "cbr2cbz"
 version = "0.1.0"
-description = "Add your description here"
+description = "Convert comic books from CBR to CBZ format"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
