@@ -1,8 +1,8 @@
 # cbr2cbz
 
-Convert comic books in the CBR format to the CBZ format. CBR comic books are just image files in
-a RAR archive. This tool repacks these into a ZIP file (CBZ), which is supported by more reader
-apps.
+Convert comic books from CBR to CBZ format. CBR files are essentially RAR archives containing
+images. This tool repackages them as ZIP archives (CBZ), which are supported by more comic book
+readers.
 
 
 ## Requirements
