@@ -14,9 +14,7 @@ def unpack_cbr(cbr_path, output_folder):
         os.makedirs(output_folder)
 
     command = [UNRAR, "x", "-o+", cbr_path, output_folder]
-    result = subprocess.run(
-        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-    )
+    result = subprocess.run(command, check=False, capture_output=True, text=True)
 
     if result.returncode != 0:
         raise RuntimeError(f"Unrar failed:\n{result.stderr}")
